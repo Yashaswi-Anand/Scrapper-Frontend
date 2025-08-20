@@ -44,7 +44,7 @@ interface ScrapedData {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold text-center my-8">Job Listings</h1>
+      <h1 className="text-3xl font-bold text-center my-8">Latest Job Listings</h1>
       {loading && <p className="text-center text-lg">Loading job data...</p>}
       {error && <p className="text-center text-lg text-red-500">Error: {error.message}</p>}
       {data && data.data && data.data.length > 0 ? (
