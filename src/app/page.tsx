@@ -50,7 +50,7 @@ interface ScrapedData {
       {data && data.data && data.data.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {data.data.map((job: Job, index: number) => (
-            <div key={index} className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <div key={index} className="bg-gradient-127 rounded-lg shadow-md p-6 border border-gray-200">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">{job.title}</h2>
               <p className="text-gray-600 mb-4">{job.company}</p>
               <a
