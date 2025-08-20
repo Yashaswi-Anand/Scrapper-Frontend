@@ -28,7 +28,6 @@ interface ScrapedData {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result = await response.json();
-        console.log(result);
         setData(result);
       } catch (err: any) {
         setError(err);
