@@ -28,7 +28,7 @@ interface ScrapedData {
         }
         const result = await response.json();
         setData(result);
-      } catch (err: any) {
+      } catch (err: unknown) {
         if (err instanceof Error) {
           setError(err);
         } else {
