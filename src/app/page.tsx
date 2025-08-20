@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -30,7 +29,11 @@ interface ScrapedData {
         const result = await response.json();
         setData(result);
       } catch (err: any) {
-        setError(err);
+        if (err instanceof Error) {
+          setError(err);
+        } else {
+          setError(new Error("An unknown error occurred."));
+        }
       } finally {
         setLoading(false);
       }
@@ -46,7 +49,7 @@ interface ScrapedData {
       {error && <p className="text-center text-lg text-red-500">Error: {error.message}</p>}
       {data && data.data && data.data.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data.data.map((job: any, index: number) => (
+          {data.data.map((job: Job, index: number) => (
             <div key={index} className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">{job.title}</h2>
               <p className="text-gray-600 mb-4">{job.company}</p>
