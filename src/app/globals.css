@@ -14,8 +14,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffffab; 
+    --foreground: #171717;
   }
 }
 
@@ -25,6 +25,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.bg-gradient-127 {
-  background-image: linear-gradient(127deg, #D1D8BE, #A2AADB);
+.card-gradient-fancy {
+  background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 }

@@ -21,7 +21,7 @@ interface ScrapedData {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8000/latest_job_list?tech_job=python_developer&location=new_york"
+          "https://scrappers-21qy.onrender.com/latest_job_list?tech_job=python_developer&location=new_york"
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -50,14 +50,22 @@ interface ScrapedData {
       {data && data.data && data.data.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {data.data.map((job: Job, index: number) => (
-            <div key={index} className="bg-gradient-127 rounded-lg shadow-md p-6 border border-gray-200">
-              <h2 className="text-xl font-semibold text-gray-800 mb-2">{job.title}</h2>
-              <p className="text-gray-600 mb-4">{job.company}</p>
+            <div
+              key={index}
+              className="relative card-gradient-fancy rounded-xl shadow-lg p-6 border border-gray-100
+                         hover:scale-105 hover:shadow-xl transition-all duration-300 ease-in-out cursor-pointer
+                         flex flex-col justify-between"
+            >
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">{job.title}</h2>
+                <p className="text-gray-700 mb-4 text-lg">{job.company}</p>
+              </div>
               <a
                 href={job.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
+                className="inline-block mt-4 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg
+                           hover:bg-blue-700 transition-colors duration-300 text-center"
               >
                 View Job
               </a>
